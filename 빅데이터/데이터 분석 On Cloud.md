@@ -1,10 +1,10 @@
-## 데이터 분석 On Cloud
+# **데이터 분석 On Cloud**
 
 클라우드 환경에서의 데이터 탐색 및 분석(AWS 환경에서의 데이터 탐색, 기초통계분석, 모델링 방법, DataBricks 활용 방법 등등)
 
 
 
-### 1. on AWS
+# 1. on AWS
 
 0. Amazon Kinesis 를 활용한 실시간 스트리밍 데이터 수집,처리 및 분석.
 
@@ -59,7 +59,7 @@
 
      -> 파이썬 코드형태로 사용 가능하여 유연성이 뛰어남.
 
-- SageMaker Debugger  ==MLDL 이나 데이터브릭스에는 없는 기능==
+- SageMaker Debugger  <mark>MLDL 이나 데이터브릭스에는 없는 기능
 
   -> 하이퍼파라미터 튜닝에러를 잡아줌.
 
@@ -75,15 +75,15 @@
 
   -> 결과 보고서가 ipynb 파일로 자동 생성, 익숙한 노트북의 형태로 제공되어 친숙함.
 
-- SageMaker Model Monitor ==MLDL 이나 데이터브릭스에는 없는 기능==
+- SageMaker Model Monitor <mark>MLDL 이나 데이터브릭스에는 없는 기능
 
   -> 기존 모델의 학습에 사용되는 프레임에 맞도록 contraint 를 지속적으로 체크하며, 모델 흐름 모니터링을 진행함(데이터 변화에 따른 concept drift 감지 등등)
 
   
 
-### 2. On Databricks
+# 2. On Databricks
 
-통합 데이터 분석 환경을 제공함.
+Azure. 통합 데이터 분석 환경을 제공함.
 
 0.  Data Science Workspace
 
