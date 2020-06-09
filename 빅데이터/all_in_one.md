@@ -1,4 +1,4 @@
-# **2020**
+# **2020 TCT**  **주스킬**  **-**  **빅데이터 대비**
 
 24문항, 200분
 
@@ -144,25 +144,25 @@ Naïve Bayes: X 독립을 가정, 결합확률분포가 각 X변수들의 확률
 
 포아송: 단위시간당 발생한 사건 빈도, 평균과 분산이 같아야 함. 동일하지 않을경우 음이항 분포를 가정
 
-**GLM 모델: Generalize Linear Model**
+GLM 모델: Generalize Linear Model,
 
-  독립변수와 종속변수 사이의 선형성,
+  - 독립변수와 종속변수 사이의 선형성,
   오차항의 정규성
   독립성
   등분산성
   4가지를 만족해야 하는 기본적인 회귀모델과는 다르게
   오차의 정규성, 등분산성을 만족하지 않아도 됨
 
-    종속변수의 분포가 정규분포인 경우: gaussian
-    이할분포인 경우: binomial
-    포아송 분포인 경우: poisson
-    역정규 분포인 경우: inverse gaussian
+  - 종속변수의 분포가 정규분포인 경우: gaussian
+  이할분포인 경우: binomial
+  포아송 분포인 경우: poisson
+  역정규 분포인 경우: inverse gaussian
 
 회귀분석, 분산분석: 종속변수가 정규분포되어 있는 연속형 변수
 
 음이항 분포: k번 성공할때 까지 시행
 
-부트스트랩 :
+### 부트스트랩
 
     원래의 모집단이 iid 가정을 충족
     재표집의 수가 적을 경우 아웃라이어의 영향 받을 수 있음
@@ -175,9 +175,9 @@ Naïve Bayes: X 독립을 가정, 결합확률분포가 각 X변수들의 확률
     모집단의 분산이 큰 경우 부표본의 반복추출 횟수, 크기를 늘려야 함
     부표본 parameter 추정치들은 정규분포를 따름
 
-Content based filtering: 단순 연관 추천.
+Content based filtering(CBF): 단순 연관 추천. A를 가진 사용자가 B도 가지고 있을시 A를 산 유저에게 B를 추천
 
-Collaborative filtering: 행동양식 기반, 다른 유저와 비교하여 추천
+Collaborative filtering(CF): 행동양식 기반, 다른 여러  유저와 비교하여 추천
 
 Pearson 상관계수: 교호작용을 고려하지 않음
 
@@ -205,13 +205,12 @@ Normal QQ plot: 정규성 가정에 대한 검토
 
 Epoch = all data
 
-All data /batch size = n iteration
+<mark>All data /batch size = n iteration
 
 # **2018**  **서술형 기출 키워드**
 
 예측방범론 -> 모델 설계 바닥부터(변수 설명, 모델 선정 등등)
 
-=========================================================================
 # 데이터 엔지니어링
 
 ### ETL
@@ -279,6 +278,7 @@ All data /batch size = n iteration
 ### 변환
 
   1. 데이터 표기 방식 통일
+    
     1. Y/N, 0/1, T/F를 로직을 통해 하나로 변경
     2. 시간 표기 방식 통일
     3. NULL 값을 처리하는 방식
@@ -308,11 +308,13 @@ All data /batch size = n iteration
 ### 배치
 
   1. 고려해야 할 사항
+    
     1. 배치 시각
     2. 데이터간 선후행 관계
     3. 동시에 가능한 개수
     4. 배치 그룹핑
   2. 담당자가 없어도 상관 없어야 함
+    
     1. 오류가 발생하면 영향있는 후속작업이 자동으로 정지
     2. 후속 작업은 선행작업 바로 다음에 연결 OR 끝나는 시간 예측하여 진행
 
@@ -322,6 +324,7 @@ All data /batch size = n iteration
   2. 변환을 사용하면 로직이 복잡해지고 후에 소스 수정시 문제가 자주 발생
   3. 바꿀 수 없다면 ETL에서 진행 ?????
   4. 품질 관리 프로세스
+    
     1. 데이터에 문제가 ㅇ벗는가
     2. 약간 있는 문제가 큰 영향이 있는가
     3. 데이터의 담당부서, 필요없는 부분, 어떠한 데이터, 데이터 변경 비용, 사용처
@@ -329,6 +332,7 @@ All data /batch size = n iteration
     5. 바꾸고 난 뒤 영향도에 따라 후속 작업 진행
     6. 다시 품질 확인
   5. 정치적인 방식
+    
     1. 운영계 시스템에서 데이터에 대해 품질을 검증하고 개선
     2. 데이터가 이상함을 현업에게 고의로 노출
     3. 최대한 소스쪽 수정을 요구, 부득이한 경우만 ETL에서 수정
@@ -365,102 +369,70 @@ All data /batch size = n iteration
   3. 조회 패턴이 잘 알려져 있고 단순한 경우 
   4. 대규모 데이터 저장이 필요하고, 데이터 증가에 따라 확장이 필요한 경우
 
-![platform_compare](./img/platform_compare.png)      
-
 
 # **AI**
 
-넓은 의미의 ai: 자동화 프로그램 모두
 
-좁은 의미의 ai: 인간의 사고 행동 표방
-
-딥 러닝은 머신러닝에 포함됨, 머신러닝은 넓은의미의 ai에 포함
-
-Knowledge based ai: 사람이 자신의 인사이트로 end to end rule설정
-
-ML based ai: data를 기반으로 인식, 예측 rule
-
-Representation learning: data based feature creation
-
-Deep learning based ai: neural network, all auto
-
-정형 데이터: 엑셀 등
-
-비정형 데이터: 이미지, 영상, 소리 등
+- 딥 러닝은 머신러닝에 포함됨, 머신러닝은 넓은의미의 ai에 포함
+- Knowledge based ai: 사람이 자신의 인사이트로 end to end rule설정
+- ML based ai: data를 기반으로 인식, 예측 rule
+- Representation learning: data based feature creation
+- Deep learning based ai: neural network, all auto
+- 정형 데이터: 엑셀 등
+- 비정형 데이터: 이미지, 영상, 소리 등
 
 ### Ai 구현 process
 
-  1. 전문가 시스템
-    1. 모든 rule을 사람이 결정
-  2. 전통적인 ml 기법
-    1. Feature를 사람이 결정하여 rule은 모델링
-  3. Ml/dl 기법
-    1. Raw data 부터 rule 까지 모델링
+  - 전문가 시스템
+    - 모든 rule을 사람이 결정
+  - 전통적인 ml 기법
+    - Feature를 사람이 결정하여 rule은 모델링
+  - Ml/dl 기법
+    - Raw data 부터 rule 까지 모델링
 
-Tensor: scalar -\&gt; vector -\&gt; matrix -\&gt; tensor(3d)
-
-Fnn: feedforward neural network
-
-Cnn: convolutional neural network
-
-Rnn: recurrent neural network
-
-Sigmoid: gdp 발생, 계산 복잡
-
-Tanh: gdp 발생
-
-Relu: 굳
-
-Gradient descent
-
-Back propagation
-
-Hyperparameter: traning 동안 학습되지 않음
-
-Learning rate
-
-Data: 4000, batch size=400 ---\&gt;\&gt; 1epoch = 10 iteration
-
-검출율: tp/(tp+fn) --\&gt; 불량 검수 빡세게
-
-정밀도: tp/(tp+fp) --\&gt; 불량 검수 자체를 정제
+- Tensor: scalar -> vector -> matrix -> tensor(3d)
+- Fnn: feedforward neural network
+- Cnn: convolutional neural network
+- Rnn: recurrent neural network
+- Sigmoid: gdp(gradient descent) 발생, 계산 복잡
+- Tanh: gdp 발생
+- Gradient descent
+- Hyperparameter: traning 동안 학습되지 않음
+- Learning rate
+- Data: 4000, batch size=400 ---\&gt;\&gt; 1epoch = 10 iteration
+- 검출율: tp/(tp+fn) --\&gt; 불량 검수 빡세게
+- 정밀도: tp/(tp+fp) --\&gt; 불량 검수 자체를 정제
 
 
 ### Loss function
 
-Quadratic
+  - Quadratic
+    - 장: 실수에도 사용 가능
+    - 단: sigmoid와 사용시 수렴이 느림
 
-장: 실수에도 사용 가능
+  - Cross entropy
+    - 이진 분류에서 사용
+    - 장: quadratic에 비해 모델 수렴
 
-단: sigmoid와 사용시 수렴이 느림
-
-Cross entropy
-
-이진 분류에서 사용
-
-장: quadratic에 비해 모델 수렴
-
-Negative log likelibood
-
-Multiclass 에서 사용
-
-장: softmax와 사용ㅅ 수렴이 빠름
+  - Negative log likelihood
+    - Multiclass 에서 사용
+    - 장: softmax와 사용시 수렴이 빠름
 
 
 ### Optimizer
 
-Momentum: 과거의 파라미터 업데이트 내역을 누적
+- Momentum: 과거의 파라미터 업데이트 내역을 누적
 
-Adaptive: 파라미터 업데이트가 진행될수록 learning rate를 줄임
+- Adaptive: 파라미터 업데이트가 진행될수록 learning rate를 줄임
 
 
 ### 가중치 초기화(weight initialization)
 
-Lecun normal: relu 나오기 전, 가우시안 분포에서 분산을 x의 원래 분산 정도로 보정
+  - Lecun normal: relu 나오기 전, 가우시안 분포에서 분산을 x의 원래 분산 정도로 보정
 
-Xavier: relu 이후, 입력/출력 노드수를 고려하여 초기값 설정
+  - Xavier: relu 이후, 입력/출력 노드수를 고려하여 초기값 설정
 
-He: xavier 분산값을 2로 곱함
+  - He: xavier 분산값을 2로 곱함
 
 
 ### Regularization
@@ -468,16 +440,20 @@ He: xavier 분산값을 2로 곱함
 Generalization error를 감소시키려는 목적, overfitting 방지를 위함
 
   1. Model capacity 조정
+    
     1. Hidden layer 노드 수, layer 수 줄이기
     2. Weight decay: 불필요한 weight를 0 근처로 유도(l1, l2 penalty)
     3. Early stopping: overfitting 조짐시(validation set의 cost를 모니터링) stop
   2. 더 많은 데이터 확보(data augmentation)
+    
     1. Image의 경우: 좌우반전, 명암 등 변경
     2. Text의 경우: 한영한 번역 득
   3. 앙상블(ensemble)
   4. Drop out
+    
     1. P 확률로 뉴론을 드랍
   5. Batch normalization
+    
     1. Batch normalization layer를 추가하여 input을 변경(시작점 제외)
 
 ### CNN을 쓰는 이유
@@ -485,9 +461,10 @@ Generalization error를 감소시키려는 목적, overfitting 방지를 위함
   1. Weight를 공유
   2. FCN에 비하여 parameter수가 감소하여 overfitting을 줄여줌
   3. Pooling
+    
     1. Max, average
 
-Gradient vanishing \&lt;-\&gt; Gradient exploding
+Gradient vanishing <-> Gradient exploding
 
 # **데이터 분석 On Cloud**
 
@@ -519,6 +496,7 @@ Gradient vanishing \&lt;-\&gt; Gradient exploding
 
    - 개발자 및 데이터 분석가가 머신러닝 모델을 빠르게 구축, 학습 및 배포할 수 있도록 하는 완전 관리형 서비스.
    - 머신 러닝에 사용되는 모든 구성 요소를 단일 도구 세트로 제공하여 반복적인 머신러닝 프로세스를 더 빠르게, 더 적은 노력으로 처리 할 수 있음.
+
 
 
 ​	**상세 기능**
@@ -608,7 +586,12 @@ Azure, AWS에 있음. 통합 데이터 분석 환경을 제공함.
 
 
 
-## 데이터 엔지니어링
+분석 순서
+  1. 적합한 cloud 환경을 찾기 위해 사업 요건 분석
+  2. 
+
+
+  ## 데이터 엔지니어링
 
 (24p ~ 끝까지)
 
@@ -756,7 +739,111 @@ Azure, AWS에 있음. 통합 데이터 분석 환경을 제공함.
   - 데이터가 이상함을 현업에게 고의로 노출하여 문제가 있음을 보여준다.
   - 최대한 소스쪽 수정을 요구하고, 정말 부득이한 경우에만 ETL에서 수정
 
-  ## 알고리즘 이론정리
+## 빅데이터분석 기출 기반 정리자료01
+
+### 단답형
+
+1. VC Dimension / Hoeffding's Inequality
+
+   vc dimension: 통계적 분류 알고리즘으로 학습 할 수 있는 함수 공간의 용량 -> 모델의 복잡도 라고 이해
+
+   Hoeffding's Inequality(호에프딩 부등식) : 경계(boundary) 의 독립 확률 변수의 합이 예상 값에서 일정량 이상 벗어날 가능성에 대한 상한 값을 제공
+
+    in-sample error와 out-sample error로 내가 가지고 있는 분류기가 있을 때, 학습에 사용된 데이터에 적용시켰을 때 결과와 새로운 데이터에 적용시켰을 때의 결과 차이의 평균을 "확률적"으로 bound 시키는 것
+
+   https://enginius.tistory.com/465
+
+   http://theyearlyprophet.com/learning-from-data-learning-theory-kr.pdf
+
+2. word2vec 
+
+   중심단어를 사용하여 주변단어를 예측하는 skip gram 방식과, 주변단어로 중심단어를 예측하는 CBOW 방식이 존재함. 
+
+   https://ratsgo.github.io/from%20frequency%20to%20semantics/2017/03/30/word2vec/
+
+3. Glove
+
+   https://ratsgo.github.io/from%20frequency%20to%20semantics/2017/04/09/glove/
+
+4. Q-Q plot
+
+   수집 데이터를 표준정규분포의 분위수와 비교하여 그리는 그래프로, 수집 데이터가 정규성 가정을 만족할시 y = x 형태의 직선 모양으로 그려짐.
+
+5. 시계열 분석 검증법
+
+   시계열 분석..
+
+   - **Arima 모형** (승법계절 아리마 p,d,q 모형) 
+
+     데이터가 정상 시계열인지 확인 
+
+     -> 해당 시계열 데이터가 시간에 독립인지 / 시계열의 분산이 일정한지 / 시계열의 평균 M 이 시간에 대해 constant 한지 확인 (다 같은말임)
+
+     정상 시계열이 아니라면  (데이터에 추세가 보인다면) 적절하게 차분을 시행하여 시계열을 정상시계열로 변환해주는데, 비계절 차분과 계절차분으로 나뉘며 계절성이 뚜렷하게 보이는 비정상 시계열에는 계절 차분을 시행하고, 그렇지않다면 비계절 차분을 시행함.
+
+     **이후 분석하는 시계열 데이터는 정상성 가정을 만족하며, 잔차는 자가상관을 가지고 있지 않은 백색잡음이라고 가정함**
+
+   - 검정방법
+
+     1. 단위근 검정 -> 차분을 진행 할지 말지 결정 
+
+        ∇Yt=aYt−1+ϕ1∇Yt−1+ϕ2∇Yt−2+⋯+ϕp∇Yt−p+et  ( yt의 변화량을 종속변수, 원 시계열과 차분값의 지연 값들을 독립변수로 회귀분석을 시행하여 구한 계수값 a)
+
+        H0: 데이터가 정상 시계열을 만족한다 (a = 0)
+
+        H1: 데이터가 정상 시계열을 만족하지 않는다.(a !=0) 
+
+        피벨류가 유의확률보다 작으면(검정통계량 값이 유의수준의 Z값보다 크면) 귀무가설 기각 -> 데이터가 정상성 가정을 만족하지 않으므로 데이터 차분을 진행하여야 함.
+
+     2. 포트만토 검정 -> 잔차의 자가상관을 확인함
+
+        H0: 잔차가 자가상관이 없음(p1=p2...=0)
+
+        H1: 잔차에 자가상관이 존재함 
+
+        피벨류가 유의확률보다 커 귀무가설이 채택되면 -> 잔차가 자가상관이 없으므로 모형이 제대로 만들어진 것.
+
+        피벨류가 유의확률보다 작아 귀무가설이 기각되면 -> 잔차에 자가상관이 남아있는 것이므로 모형 수정이 필요함.
+
+        
+
+6. 가설검정/기초통계
+
+   - 가설검정
+
+     -> 시계열 검정 부분에서 먼저 나왔는데, 통계의 기본 가설검정은 귀무가설, 대립가설 세우는것부터 시작
+
+     귀무가설 : m =0 이다의 형태 (독립이다/ 계수가 유의미하지않다 )
+
+     대립가설 : m>0 or m<0 (단측검정) , m != 0 (양측검정)
+
+     단측검정의 경우 검정통계량 값 > Z값 (m>0) 검정통계량 값 < Z값( m<0 ) 이면 귀무가설 기각, 양측검정은 검정통계량 > |Z/2| 면 귀무가설 기각. 
+
+   - 기초통계
+
+     https://blog.naver.com/PostView.nhn?blogId=mykepzzang&logNo=220842759639&parentCategoryNo=&categoryNo=&viewDate=&isShowPopularPosts=false&from=postView
+
+     이항분포(binomial): 확률 p 인 사건을 N번 시행하여 사건 발행 횟수에 따른 확률들을 구하면 그것을 확률 p, 시행횟수 N인 이항분포라고 정의하며 B(N,p)로 표현함. 평균은 Np,이며 분산은 Np*(1-p) 임 중심극한정리에 따라 N 이 커지면서 정규분포로 근사함
+
+     포아송분포(poisson): 단위시간 안에 어떤 사건이 몇 번 발생할 것인지 표현하는 이산 확률 분포로, 일어나는 사건이 독립적임.  평균과 분산 모두 모수 람다 값이며 np의 값이 5보다 작으면 이항분포는 람다= np 인 포아송 분포에 근사하게 됨 (주로 count 데이터에 활용함)
+
+     초기하분포(hypergeometric): 크기가 N인 유한한 모집단으로부터 n개를 비복원추출 할 시에 확률변수 X가 나타내는 이산 확률분포로, 평균은 nk/N이며 분산은 (N-n/N-1)n(k/N)*(1-k/N) 임
+
+     기하분포(geometric): 성공일 확률이 p 인 베르누이 시행을 독립적으로 반복하고 처음 성공할 때까지의 시행횟수를 확률변수 X라 할때, X가 나타내는 이산확률분포. 평균은 1/p 이며 분산은 1-p/p^2 . 음이항 분포에서 k =1 인 특수한 경우임.
+
+     감마분포(Gamma): 알파 번째 사건이 일어 날 때까지 걸리는 시간에 대한 연속 확률분포, 평균은 알파와 베타의 곱이며 변수는 알파와 베타 제곱의 곱임
+
+     지수분포(exponential): 사건이 서로 독립적일때, 일정시간 동안 발생하는 사건의 횟수가 포아송 분포를 따른다면 다음 사건이 일어날 때까지의 시간에 대한 분포는 지수분포를 따름 감마분포에서 알파값을 1로 고정시킨 특수한 경우이며 평균은 모수 베타값이며 분산은 베타제곱임
+
+     음이항분포(Negative Binomial): 성공확률이 p 인 베르누이 시행을 독립적으로 반복하고, k번째 성공이 나올때까지의 시행횟수를 확률변수 X라 할때, X가 나타내는 이산확률분포 평균은 k/p, 분산은 k(1-p)/p^2 
+
+     카이제곱분포(chi-square): 감마분포에서 알파가 v/2 베타가 2에 해당하는 특수한 경우로 자유도 k 에 따라 분포가 달라짐. 연속확률변수 X가 평균이 m 이고 분산이 sigma^2 인 정규분포를 따를때, (x-m)^2/sigma^2 은 자유도 1인 카이제곱 분포를 따름.
+
+     T분포: 모집단의 분산이 알려져 있지 않은 경우에 정규분포 대신 이용하는 확률분포로, 평균이 m이고 분산이 sigma^2인 정규분포에서 추출한 표본 x1,x2..xn에 대한 표본분산을 S^2라고 할때 T = mean(x)-m/(S/n^0.5) 는 자유도가 n-1 인 티분포를 따름
+
+     F분포:정규분포를 이루는 모집단에서 독립적으로 추출한 표본들의 분산 비가 나타내는 연속 확률 분포로, 2개 이상의 표본평균들이 동일한 모평균을 가진 집단에서 추출되었는지 아닌지를 판단하기 위해 이용함. 서로 독립인 확률변수 U,V가 각각 자유도가 u,v인 카이제곱분포를 따를때 새 확률변수 F = (U/u)/(V/v) 는 자유도가 (u,v) 인 F분포를 따름
+
+## 알고리즘 이론정리
 
 ### 회귀분석
 
@@ -816,7 +903,7 @@ Azure, AWS에 있음. 통합 데이터 분석 환경을 제공함.
 
 numeric 변수만을 반응변수로 하는 회귀분석의 일반화된 모형으로, link function 의 종류에 따라 다양한 모델이 존재함.
 
-GLM 은 3가지 부분으로 구성되어 있는데, random component 인 반응변수 Y, systematic component 인 설명변수 X, 그리고 Y와 X사이의 관계를 규명하는 link function임. 근데 여기서 link function 이 되기 위한 조건이 두가지 존재하는데,바로 monotone(단조증가) 하고 differentiable(미분가능) 하다는 점임. 이 두가지 조건을 만족하지 않은 함수는 link function 이 될 수 없음.
+GLM 은 3가지 부분으로 구성되어 있는데, random component 인 반응변수 Y, systematic component 인 설명변수 X, 그리고 Y와 X사이의 관계를 규명하는 link function임. 근데 여기서 link function 이 되기 위한 조건이 두가지 존재하는데,바로 <mark>monotone(단조증가)</mark> 하고 <mark>differentiable(미분가능)</mark> 하다는 점임. 이 두가지 조건을 만족하지 않은 함수는 link function 이 될 수 없음.
 
 1. Poisson regression
 
@@ -890,8 +977,9 @@ Lm, Ls를 각각의 모델에 대한 maximized log-likelihood라고 할때, GLM�
 
   -> 이것을 zero frequency 라 부르며, 이를 해결하기 위해선 라플라스 추정을 이용하여 smoothing 을 하여야함.
 
-- 설명변수 독립 가정이 성립하지 않을시에는 에러 발생 가능성이 매우 높아져서 결과를 신뢰할 수 없음.
+- 설명변수 독립 가정이 성립하지 않을시에는 에러 발생 가능성이 매우 높아져서 결과를 신뢰할 수 없음.     
 
+   
 # Ensemble Model
 
 ## 1. 소개
@@ -990,3 +1078,41 @@ _____ Boosting 사례) (이 부분은 '쉽게 읽는 머신 러닝(https://blog.
 - Bagging은 Variance를 줄이는 것이 주 목적이지만, Boosting은 Bias를 줄이는 것이 주 목적이다. 
 - 잡음이 없는 데이터에 대해서는 Boosting이 Bagging보다 우수하다.
 - Bagging은 overfitting 문제를 해결할 수 있지만, Boosting은 overfitting 문제로부터 자유롭지 못하다
+
+# MLDL분석 순서
+
+1. 프로젝트 설정
+    - 프로젝트 자원 설정
+2. 프로젝트 멤버 설정
+    - 관리자
+        - 프로젝트 자원 설정 및 분석환경에 대한 설정. sudo
+    - 분석가
+        - 본인의 분석환경에만 접근 가능
+    - 리뷰어
+        - 분석 현황 조회
+3. 데이터셋 등록
+    - 데이터가 크다면 pyHive, pySpark 등을 이용해 hive 서버로 데이터를 불러오도록 처리
+   -  공용 data는  shared에 보관
+4. 분석환경 설정
+    - **PSP**
+        - Python Spark
+    - PML
+        - Python machine learning
+    - **RSP**
+        - r studio spark
+    - RML
+        - r studio machine learning
+5. 개발 및 분석
+    - 패키지 install
+    - 이후 분석환경 이미지 저장
+6. model 등록
+    - job scheduling을 통해 kpi 표시
+7. job scheduling
+    - 보다 많은 리소스 사용 가능
+8. 헉숩 결과 및 평가 지표 조회
+    - KPI 지표에 맞춰 결과 조회
+   
+
+   
+
+   
