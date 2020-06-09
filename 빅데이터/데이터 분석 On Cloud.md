@@ -115,9 +115,14 @@ Azure, AWS에 있음. 통합 데이터 분석 환경을 제공함.
    - databricks delta는 아파치 스파크와 100% 연동
 
 
+## cloud platform 별 비교
+1. MLDL: 분석 프로세스 관리, 추론에 특화
+2. AZURE: 소리, 텍스트 기능 젤 많음, 드래그 앤 드랍 특화
+3. AWS: 실시간 영상 분석 기능
+4. google: 이미지하면 구글이지, temsorflow, kubernetes
+5. IBM
 
-
-
+##  
 분석 순서
   1. 적합한 cloud 환경을 찾기 위해 사업 요건 분석
   2. 
