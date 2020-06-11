@@ -6,9 +6,6 @@ def solution(key, lock):
     key = np.array(key)
     lock = np.array(lock)
     answer = False
-    #  TODO: lock 이 전부가 1이 되도록 key가 있어야 함
-    #       key는 회전 이동이 가능
-
     #  or 사용
     #  1. 4가지 key를 만든다.
     key_list = [key, np.rot90(key), np.rot90(key, 2), np.rot90(key, 3)]
@@ -28,8 +25,9 @@ def make_padding(lock, i):
 
 
 def compare(key, lock):
-    for i in range(len(lock)-len(key)):
-        for j in range(len(lock)-len(key)):
+    tmp = len(lock)-len(key)+1
+    for i in range(tmp):
+        for j in range(tmp):
             result = copy.deepcopy(lock)
             result[i:key.shape[0] + i, j:key.shape[1] + j] += key
             if not check_zeros(result):
