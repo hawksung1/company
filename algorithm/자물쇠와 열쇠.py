@@ -1,9 +1,11 @@
 import numpy as np
+import copy
+
 
 def solution(key, lock):
     key = np.array(key)
     lock = np.array(lock)
-    answer = True
+    answer = False
     #  TODO: lock 이 전부가 1이 되도록 key가 있어야 함
     #       key는 회전 이동이 가능
 
@@ -14,17 +16,33 @@ def solution(key, lock):
     padding_lock = make_padding(lock, len(key)-1)
     #  3. kwy 별로 lock의 모든 좌표에 or 시전하여 모두 1인 lock이 나오면 true else false
     for i in key_list:
-        compare(i, padding_lock)
+        if compare(i, padding_lock):
+            return True
     return answer
 
 def make_padding(lock, i):
-    result = np.ones(2 * i + len(lock))
-    
+    asdf = 2 * i + len(lock)
+    result = np.ones((asdf, asdf))
     result[i:lock.shape[0]+i, i:lock.shape[1]+i] = lock
     return result
 
+
 def compare(key, lock):
-    pass
+    for i in range(len(lock)-len(key)):
+        for j in range(len(lock)-len(key)):
+            result = copy.deepcopy(lock)
+            result[i:key.shape[0] + i, j:key.shape[1] + j] += key
+            if not check_zeros(result):
+                return True
+    return False
+
+def check_zeros(matrix):
+    for i in range(len(matrix)):
+        for j in range(len(matrix[0])):
+            if matrix[i][j] == 0:
+                return True
+    return False
+
 
 if __name__ == "__main__":
     solution([[0, 0, 0], [1, 0, 0], [0, 1, 1]], [[1, 1, 1], [1, 1, 0], [1, 0, 1]])
