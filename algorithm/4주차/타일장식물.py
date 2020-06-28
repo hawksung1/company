@@ -19,6 +19,3 @@ def make_list(N):
 def cal_sum(a, b):
     return 2 * (a + (a + b))
 
-
-if __name__ == "__main__":
-    solution(6)
