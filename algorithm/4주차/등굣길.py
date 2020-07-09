@@ -1,3 +1,6 @@
+"""
+    dynamic programming
+"""
 def solution(m, n, puddles):
     board = [[0]*(m+1) for i in range(n+1)]
     board[1][1] = 1
