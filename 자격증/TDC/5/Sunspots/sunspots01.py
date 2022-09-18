@@ -65,19 +65,19 @@ if __name__ == '__main__':
                                       shuffle_buffer=shuffle_size)
 
     model = Sequential([
-        tf.keras.layers.Conv1D(60, kernel_size=5,
+        tf.keras.layers.Conv1D(32, kernel_size=5,
                                padding="causal",
                                activation="relu",
                                input_shape=[None, 1]),
-        tf.keras.layers.LSTM(60, return_sequences=True),
-        tf.keras.layers.LSTM(60, return_sequences=True),
+        tf.keras.layers.LSTM(64, return_sequences=True),
+        tf.keras.layers.LSTM(64, return_sequences=True),
         tf.keras.layers.Dense(30, activation="relu"),
         tf.keras.layers.Dense(10, activation="relu"),
         tf.keras.layers.Dense(1),
         tf.keras.layers.Lambda(lambda x: x * 400)  ########### 문제에 따라 제공안되었을 경우 제외
     ])
 
-    optimizer = SGD(lr=1e-5, momentum=0.9)
+    optimizer = SGD(lr=1e-8, momentum=0.9)
     loss = Huber()
     model.compile(loss=loss,
                   optimizer=optimizer,

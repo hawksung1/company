@@ -54,39 +54,31 @@ def preprocess(data):
     y = data["label"]
     return x, y
 
-def solution_model():
-    train_data = train_dataset.map(preprocess).batch(32)
-    test_data = valid_dataset.map(preprocess).batch(32)
+train_data = train_dataset.map(preprocess).batch(32)
+test_data = valid_dataset.map(preprocess).batch(32)
 
-    transfer_model = inception_v3.InceptionV3(weights='imagenet', include_top=False, input_shape=(224, 224, 3))
-    transfer_model.trainable = False
+transfer_model = inception_v3.InceptionV3(weights='imagenet', include_top=False, input_shape=(224, 224, 3))
+transfer_model.trainable = False
 
-    model = Sequential([
-        transfer_model,
-        Flatten(),
-        Dropout(0.5),
-        Dense(512, activation='relu'),
-        Dense(128, activation='relu'),
-        # YOUR CODE HERE, BUT MAKE SURE YOUR LAST LAYER HAS 2 NEURONS ACTIVATED BY SOFTMAX
-        tf.keras.layers.Dense(2, activation='softmax')
-    ])
+model = Sequential([
+    transfer_model,
+    Flatten(),
+    Dropout(0.5),
+    Dense(512, activation='relu'),
+    Dense(128, activation='relu'),
+    # YOUR CODE HERE, BUT MAKE SURE YOUR LAST LAYER HAS 2 NEURONS ACTIVATED BY SOFTMAX
+    tf.keras.layers.Dense(2, activation='softmax')
+])
 
-    checkpoint_path = "tmp_checkpoint.ckpt"
-    checkpoint = ModelCheckpoint(filepath=checkpoint_path,
-                                 save_weights_only=True,
-                                 save_best_only=True,
-                                 monitor='val_loss',
-                                 verbose=1)
-    model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['acc'])
+checkpoint_path = "tmp_checkpoint.ckpt"
+checkpoint = ModelCheckpoint(filepath=checkpoint_path,
+                              save_weights_only=True,
+                              save_best_only=True,
+                              monitor='val_loss',
+                              verbose=1)
+model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['acc'])
 
-    model.fit(train_data, validation_data=test_data, epochs=20, callbacks=checkpoint)
-    model.load_weights(checkpoint_path)
-    model.evaluate(test_data)
-
-    return model
-
-# val_loss: 0.3158
-# val_acc: 0.8665
-if __name__ == '__main__':
-    model = solution_model()
-    model.save("TF3-cat-dog.h5")
+model.fit(train_data, validation_data=test_data, epochs=20, callbacks=checkpoint)
+model.load_weights(checkpoint_path)
+model.evaluate(test_data)
+model.save("TF3-cat-dog-0.0343.h5")
