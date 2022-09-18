@@ -1,0 +1,28 @@
+﻿※ 샘플 프로그램 설명
+
+1. eclipse 에 project import
+   - eclipse -> Project Explorer -> import -> Existing Projects into Workspace
+
+2. HTTP Server 먼저 실행
+   - 실행 방법
+      1) eclipse HTTP_SERVER project 에서 src/test/MyServer.java 오픈
+      2) Ctrl + F11
+   - 동작 설명
+      1) http 8080 port 로 Jetty ServerConnector(WAS) 가 구동됨
+       
+3. HTTP Client 나중에 실행
+   - 실행 방법
+      1) eclipse HTTP_CLIENT project 에서 src/test/MyClient.java 오픈
+      2) Ctrl + F11
+   - 동작 설명
+      1) Jetty HttpClient 가 http://127.0.0.1:8080/mypath 를 요청
+      2) Http Server 로부터 수신된 "Hello!" 문자열이 출력됨
+       
+4. JSON 샘플 프로그램은 순서 없이 별도 실행
+   - 실행 방법
+      1) eclipse JSON project 에서 src/test/MyJson.java 오픈
+      2) Ctrl + F11
+   - 동작 설명
+      1) {"key":"value"} json String 이 Gson JsonElement 로 변경됨
+      2) 변경된 JsonElement 를 String 으로 변환하여 출력
+
