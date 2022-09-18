@@ -8,7 +8,6 @@ from keras.models import Sequential
 from keras.callbacks import ModelCheckpoint
 from keras.optimizers import SGD
 from keras.losses import Huber
-from keras.callbacks import EarlyStopping
 
 
 def windowed_dataset(series, window_size, batch_size, shuffle_buffer):
@@ -93,7 +92,6 @@ if __name__ == '__main__':
                                  verbose=1)
 
     epochs = 100
-
     history = model.fit(train_set,
                         validation_data=(validation_set),
                         epochs=epochs,
