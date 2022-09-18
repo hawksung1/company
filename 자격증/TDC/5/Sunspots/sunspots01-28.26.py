@@ -70,7 +70,7 @@ if __name__ == '__main__':
                                activation="relu",
                                input_shape=[None, 1]),
         tf.keras.layers.LSTM(64, return_sequences=True),
-        tf.keras.layers.LSTM(32, return_sequences=True),
+        tf.keras.layers.LSTM(64, return_sequences=True),
         tf.keras.layers.LSTM(32, return_sequences=True),
         tf.keras.layers.Dense(32, activation="relu"),
         tf.keras.layers.Dense(8, activation="relu"),
@@ -91,7 +91,7 @@ if __name__ == '__main__':
                                  monitor='val_mae',
                                  verbose=1)
 
-    epochs = 150
+    epochs = 100
     history = model.fit(train_set,
                         validation_data=(validation_set),
                         epochs=epochs,

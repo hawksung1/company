@@ -78,7 +78,7 @@ checkpoint = ModelCheckpoint(filepath=checkpoint_path,
                               verbose=1)
 model.compile(optimizer='adam', loss='sparse_categorical_crossentropy', metrics=['acc'])
 
-model.fit(train_data, validation_data=test_data, epochs=20, callbacks=checkpoint)
+model.fit(train_data, validation_data=test_data, epochs=5, callbacks=checkpoint)
 model.load_weights(checkpoint_path)
 model.evaluate(test_data)
 model.save("TF3-cat-dog-0.0343.h5")
