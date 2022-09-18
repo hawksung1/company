@@ -8,6 +8,7 @@ from keras.models import Sequential
 from keras.callbacks import ModelCheckpoint
 from keras.optimizers import SGD
 from keras.losses import Huber
+from keras.callbacks import EarlyStopping
 
 
 def windowed_dataset(series, window_size, batch_size, shuffle_buffer):
@@ -65,19 +66,20 @@ if __name__ == '__main__':
                                       shuffle_buffer=shuffle_size)
 
     model = Sequential([
-        tf.keras.layers.Conv1D(32, kernel_size=5,
+        tf.keras.layers.Conv1D(64, kernel_size=5,
                                padding="causal",
                                activation="relu",
                                input_shape=[None, 1]),
         tf.keras.layers.LSTM(64, return_sequences=True),
         tf.keras.layers.LSTM(64, return_sequences=True),
-        tf.keras.layers.Dense(30, activation="relu"),
-        tf.keras.layers.Dense(10, activation="relu"),
+        tf.keras.layers.LSTM(32, return_sequences=True),
+        tf.keras.layers.Dense(32, activation="relu"),
+        tf.keras.layers.Dense(16, activation="relu"),
         tf.keras.layers.Dense(1),
         tf.keras.layers.Lambda(lambda x: x * 400)  ########### 문제에 따라 제공안되었을 경우 제외
     ])
 
-    optimizer = SGD(lr=1e-8, momentum=0.9)
+    optimizer = SGD(lr=1e-6, momentum=0.9)
     loss = Huber()
     model.compile(loss=loss,
                   optimizer=optimizer,
@@ -91,6 +93,7 @@ if __name__ == '__main__':
                                  verbose=1)
 
     epochs = 100
+
     history = model.fit(train_set,
                         validation_data=(validation_set),
                         epochs=epochs,

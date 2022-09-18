@@ -156,10 +156,8 @@ def solution_model():
                input_shape=[N_PAST, 7],
                ),
         Bidirectional(LSTM(32, return_sequences=True)),
-        Bidirectional(LSTM(32, return_sequences=True)),
-        Bidirectional(LSTM(16, return_sequences=True)),
+        Dense(32, activation="relu"),
         Dense(16, activation="relu"),
-        Dense(8, activation="relu"),
         tf.keras.layers.Dense(N_FEATURES)
     ])
 
